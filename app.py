@@ -2,8 +2,9 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
+@app.route('/index')
 def index():
-    return "BIENVENIDOS"
+    return render_template("index.html")
 
 @app.route('/crear')
 def crear():
@@ -21,11 +22,17 @@ def borrar():
 def editar():
     return render_template("editar.html")
 
-@app.route('/index')
-def principal():
-    return render_template("index.html")
+# @app.route('/index')
+# def principal():
+#     return render_template("index.html")
 
+@app.route('/login')
+def login():
+    return render_template("login.html")
 
+@app.route('/signup')
+def signup():
+    return render_template("signup.html")
 
 
 if __name__=="__main__":
