@@ -2,7 +2,7 @@
     padding:0;
 }
 h1{
-    color: blue;
+    color: rgb(0, 255, 34);
 }
 .encabezado{
     background-color: green;
@@ -47,5 +47,53 @@ a:hover{
 .encabezado nav ul li:hover > ul{
     display: block;
 }
+body{
+    background-image: url('avion.png');
+}
+.from_boton{
+    color:rgb(30, 14, 172);
+    width: 75px;
+    border-radius: 6px;
+    padding: 2px;
+    margin-left: auto;
+}
+button{
+    text-align:center;
+    font-weight: bold;
+}
+.formVuelos{
+    text-align:initial;
+    font-weight: bold;
+}
+form{
+    width: 500px;
+    padding: 16px;
+    border-radius: 10px;
+    margin:auto;
+    background-color: gray;
+}
+h1{
+    text-align:center; 
+}
+div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+header{
+    align-items: center;
+}
+h1 div form action{
+    align-items: center;  
+}
 
+div{
+    margin:20;
+  
+}
+h2{
+    font-size: 9px;
 
+    color: rgb(1, 255, 34);   
+}

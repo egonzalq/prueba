@@ -1,15 +1,14 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
-{% block title %} consultar {% endblock %}
+{% block title %} Vuelos {% endblock %}
 
 {% block content %}
 <br><br>
-    <h1> Consulta de Vuelos </h1><br><br>
+    <h1> Crear Vuelos </h1><br><br>
     <div>
     <form action="/Vuelos/save" id="formulario" method="POST" style="color:rgb(89, 0, 255)">
         {{form.hidden_tag()}}
         <div>
-            <h2>DIGITE EL NUMERO DE VUELO</h2><br><br>
             {{ form.vuelo.label}}
             {{ form.vuelo(size=20)}}
         </div>
@@ -31,9 +30,11 @@
         </div>
 
         <div>
-       
+        {{ form.enviar(size=9)}}
         {{ form.consultar(size=9)}}
-        
+        {{ form.listar(size=9)}}
+        {{ form.actualizar(size=9)}}
+        {{ form.borrar(size=9)}}
 
         </div>
        

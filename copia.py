@@ -1,5 +1,7 @@
 import sqlite3
+from sqlite3.dbapi2 import Cursor
 from flask import Flask, render_template,request,flash
+from wtforms.compat import with_metaclass
 from formularios import formVuelos
 import os
 import _sqlite3
@@ -16,24 +18,6 @@ def get_db():
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
-@app.route('/', methods=["GET","POST"])
-def index():
-    return "BIENVENIDOS"
-
-@app.route('/vuelos', )
-def vuelos():
-    form=formVuelos()
-    return render_template("vuelos.html", form=form)
-    
-@app.route('/index' )
-def principal():
-    form=formVuelos()
-    return render_template("index.html", form=form)   
-
-@app.route('/consultar' )
-def consultar():
-    form=formVuelos()
-    return render_template("consultar.html", form=form)   
 
 @app.route("/Vuelos/save", methods=["POST"] )
 def vuelos_save():
@@ -45,7 +29,7 @@ def vuelos_save():
         hora = form.hora.data
         estado=form.estado.data
         try:
-            with sqlite3.connect("olaya.db") as con:
+            with sqlite3.connect("Data/olaya.db") as con:
                 cur = con.cursor()#realiza la conexion a la base de datos
                 cur.execute("INSERT INTO vuelos(ID_VUELOS,AEROLINEA,CIUDAD,HORA,ESTADO) VALUES(?,?,?,?,?)",
                 (vuelos,aerolinea,ciudad,hora,estado))
@@ -54,7 +38,6 @@ def vuelos_save():
         except(Error):
             print(Error)
     return "No se pudo guardar"
-
 
 
 if __name__=="__main__":
